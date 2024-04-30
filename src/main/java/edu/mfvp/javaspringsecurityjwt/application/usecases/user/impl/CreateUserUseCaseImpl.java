@@ -6,7 +6,11 @@ import edu.mfvp.javaspringsecurityjwt.domain.entities.User;
 import edu.mfvp.javaspringsecurityjwt.domain.exceptions.UserEmailAlreadyExistsException;
 
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
-    private UserRepositoryGateway repositoryGateway;
+    private final UserRepositoryGateway repositoryGateway;
+
+    public CreateUserUseCaseImpl(UserRepositoryGateway repositoryGateway) {
+        this.repositoryGateway = repositoryGateway;
+    }
 
     @Override
     public void execute(User user) {
